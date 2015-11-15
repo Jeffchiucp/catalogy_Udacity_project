@@ -23,35 +23,30 @@ udacity Full Stack Web Developer Nanodegree Project 3 - Item Catalog
 * [SeaSurf](https://flask-seasurf.readthedocs.org)
 * [GitHub-Flask](https://github-flask.readthedocs.org/en/latest/)
 
-##Setup
-for GitHub OAuth the Client ID and Client Secret have to be changed in application.py: 
+Setup
 
-```python
-app.config['GITHUB_CLIENT_ID'] = 'AAA'
-app.config['GITHUB_CLIENT_SECRET'] = 'BBB'
-```
+for GitHub OAuth the Client ID and Client Secret have to be changed in application.py:
 
-for session managment you should change the secret key of the app:
-```python
-app_secret = 'CCC'
-```
+app.config['GITHUB_CLIENT_ID'] = 'XXX'
+app.config['GITHUB_CLIENT_SECRET'] = 'YYY'
+for session management you should change the secret key of the app:
+app_secret = 'ZZZ'
 
-the callback url should be something like https://dev.danielburkard.de/github-callback and can be configured in the head of application.py:
-```python
-github_callback_url = "https://dev.danielburkard.de/github-callback"
-```
+the callback url should be something like https://jeffchiu605/login/callback
+We need to make sure all our callback urls match. 
+Our authorised endpoint that the url is: /github-callback, and because we are testing on localhost we'll need to include that too:
+github_callback_url = "http://localhost:5000/github-callback"
 
-reset database:
-```bash
+and can be configured in the head of application.py:
+
+In our github account we need to make sure the "Authorization callback URL" also matches this url:
+
+http://localhost:5000/github-callback
+
+To reset database.
 rm catalog.db
 python addData.py
-```
 
-##Usage
-start application
-```bash
-python application.py
-```
-
-##Example
-https://dev.danielburkard.de (login needed)
+Need to install in order to run the application.py
+$pip install GitHub-Flask
+$pip install flask-seasurf
